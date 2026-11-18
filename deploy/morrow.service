@@ -1,0 +1,23 @@
+[Unit]
+Description=RickyYY personal todo app
+After=network.target
+
+[Service]
+Type=simple
+User=morrow
+Group=morrow
+WorkingDirectory=/opt/morrow
+EnvironmentFile=/opt/morrow/.env
+ExecStart=/usr/bin/node /opt/morrow/server.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/morrow/data
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

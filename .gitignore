@@ -1,0 +1,13 @@
+node_modules/
+data/*
+!data/.gitkeep
+.chrome-test-profile/
+.playwright-mcp/
+yoru-refs/
+reference-yoru-*.jpg
+dist/
+.env
+*.log
+.DS_Store
+Thumbs.db
+*.tar.gz

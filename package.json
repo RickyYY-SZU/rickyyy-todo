@@ -1,0 +1,15 @@
+{
+  "name": "rickyyy-todo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A lightweight, self-hosted personal todo app.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

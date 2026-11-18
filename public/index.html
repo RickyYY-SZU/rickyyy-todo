@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2bdc7" />
+    <meta name="description" content="RickyYY 的代办事项：迎着夜色，把想做的事一件件完成。" />
+    <title>RickyYY 的代办事项</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=ai-import-1" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <svg class="svg-defs" aria-hidden="true">
+      <defs>
+        <g id="night-city-silhouette">
+          <path d="M0 420h48V250h22v-28h13v28h24v-82h36v82h31v-111h14v-35h9v35h15v111h37v-72h51v72h27V174h19v-34h10v34h14v96h40v-62h31V98h8V66h9v32h7v110h37v-89h27v89h22v-52h59v52h30V191h16v-28h9v28h16v79h45v-80h18V112h12v78h17v80h40v-57h42v57h28V160h33V94h9V66h9v28h10v66h17v132h48v-81h54v81h23v-44h55v44h28v-107h17V89h9v94h14v107h33v-65h59v65h27V174h18v-31h11v31h17v96h36v-82h28v-70h10v-29h8v29h10v70h17v82h39v-61h54v61h31V228h16v-35h12v35h18v79h45v-92h23v-32h9v32h18v92h35v-63h44v63h31V192h16v-25h10v25h17v79h45v-87h23v-38h9v38h17v87h32v-52h57v52h28v-97h17v-31h9v31h15v97h43v-72h33v-78h9v-36h9v36h10v78h16v72h41v-64h53v64h28V248h16v-34h11v34h16v73h44v-92h24v-38h10v38h17v92h36v-51h57v51h34v-78h17V151h9v-28h9v28h9v57h16v78h42v-61h49v61h34v-121h17V166h11v43h16v121h38v-72h56v72h27V198h16v-33h10v33h16v76h44v-69h31v-62h10v-26h9v26h9v62h17v69h37v-51h50v51h30v80H0Z" />
+          <rect x="0" y="405" width="1600" height="115" />
+        </g>
+      </defs>
+    </svg>
+
+    <section class="login-view" id="loginView">
+      <div class="login-art">
+        <div class="sun"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <svg class="login-skyline" viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true">
+          <use href="#night-city-silhouette"></use>
+        </svg>
+        <figure class="login-cover">
+          <img
+            src="/assets/yoru-ni-kakeru-cover.jpg"
+            alt="YOASOBI《夜に駆ける》收录专辑 THE BOOK 官方封面"
+          />
+          <figcaption>YOASOBI · 夜に駆ける</figcaption>
+        </figure>
+        <div class="art-quote">
+          <p class="lyric-jp" lang="ja">「沈むように 溶けてゆくように<br />二人だけの空が広がる夜に」</p>
+          <p class="lyric-cn" lang="zh-CN">
+            像沉入夜色，又如渐渐融化，<br />在只属于两人的天空铺展开的夜里。
+          </p>
+          <a href="https://music.apple.com/jp/album/1542182291" target="_blank" rel="noreferrer">
+            原曲与歌词 ↗
+          </a>
+        </div>
+        <span class="art-mark">R</span>
+        <span class="art-caption">RUN INTO THE NIGHT.</span>
+      </div>
+      <main class="login-panel">
+        <div class="brand brand-dark">
+          <span class="brand-symbol">R</span>
+          <span>RickyYY</span>
+        </div>
+        <div class="login-copy">
+          <p class="eyebrow">RUN INTO THE NIGHT</p>
+          <h1 lang="ja">沈むように、<br />溶けてゆくように。</h1>
+          <p lang="zh-CN">像沉入夜色，又如渐渐融化；在只属于两人的天空铺展开的夜里。</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label for="password">访问密码</label>
+          <div class="password-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="输入你的密码"
+              required
+            />
+            <button class="icon-button" type="button" id="togglePassword" aria-label="显示密码">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                <circle cx="12" cy="12" r="2.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="form-error" id="loginError" role="alert"></p>
+          <button class="primary-button login-submit" type="submit">
+            <span>进入我的清单</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p class="login-footnote">夜に駆ける · YOASOBI</p>
+      </main>
+    </section>
+
+    <div class="app-shell is-hidden" id="appShell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <div class="brand">
+            <span class="brand-symbol">R</span>
+            <span>RickyYY</span>
+          </div>
+          <button class="sidebar-close icon-button" id="sidebarClose" aria-label="关闭菜单">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 6 12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <button class="new-task-button" id="openTaskModal" type="button">
+          <span class="plus">+</span>
+          <span>新建任务</span>
+          <kbd>N</kbd>
+        </button>
+        <button class="ai-import-button" id="openImportDialog" type="button">
+          <span class="ai-spark" aria-hidden="true">✦</span>
+          <span>粘贴文本，AI 整理</span>
+          <kbd>I</kbd>
+        </button>
+
+        <nav class="main-nav" aria-label="任务视图">
+          <p class="nav-label">我的清单</p>
+          <button class="nav-item is-active" data-view="all">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" /><path d="M8 9h8M8 13h5" /></svg>
+            </span>
+            <span>全部任务</span>
+            <span class="nav-count" id="allCount">0</span>
+          </button>
+          <button class="nav-item" data-view="today">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3" /><path d="M8 3v4M16 3v4M4 10h16M8 14h3" /></svg>
+            </span>
+            <span>今天</span>
+            <span class="nav-count" id="todayCount">0</span>
+          </button>
+          <button class="nav-item" data-view="upcoming">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 8h14M5 12h10M5 16h7" /><circle cx="18" cy="16" r="3" /></svg>
+            </span>
+            <span>接下来</span>
+          </button>
+          <button class="nav-item" data-view="completed">
+            <span class="nav-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="m8.5 12 2.2 2.2 4.8-5" /></svg>
+            </span>
+            <span>已完成</span>
+            <span class="nav-count" id="completedCount">0</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-section">
+          <p class="nav-label">分类</p>
+          <button class="category-link" data-category="work">
+            <span class="category-dot category-work"></span>
+            <span>工作</span>
+            <span id="workCount">0</span>
+          </button>
+          <button class="category-link" data-category="personal">
+            <span class="category-dot category-personal"></span>
+            <span>生活</span>
+            <span id="personalCount">0</span>
+          </button>
+          <button class="category-link" data-category="study">
+            <span class="category-dot category-study"></span>
+            <span>学习</span>
+            <span id="studyCount">0</span>
+          </button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="focus-note">
+            <span class="focus-star">✳</span>
+            <p>
+              <span class="lyric-jp" lang="ja">「沈むように 溶けてゆくように」</span>
+              <span class="lyric-cn" lang="zh-CN">像沉入夜色，又如渐渐融化</span>
+              <span>夜に駆ける · YOASOBI</span>
+            </p>
+          </div>
+          <div class="account">
+            <span class="avatar">R</span>
+            <div>
+              <strong>RickyYY</strong>
+              <span>数据保存在本机</span>
+            </div>
+            <button class="icon-button" id="logoutButton" title="退出登录" aria-label="退出登录">
+              <svg viewBox="0 0 24 24"><path d="M10 5H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4M14 8l4 4-4 4M18 12H9" /></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="sidebarOpen" aria-label="打开菜单">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          </button>
+          <div>
+            <p class="today-label" id="todayLabel"></p>
+            <h2>RickyYY 的代办事项</h2>
+          </div>
+          <div class="topbar-actions">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4 4" /></svg>
+              <input id="searchInput" type="search" placeholder="搜索任务" aria-label="搜索任务" />
+              <kbd>/</kbd>
+            </div>
+            <button class="avatar avatar-button" id="mobileLogout" title="退出登录">R</button>
+          </div>
+        </header>
+
+        <section class="dashboard">
+          <div class="hero-card">
+            <svg class="hero-skyline" viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true">
+              <use href="#night-city-silhouette"></use>
+            </svg>
+            <img
+              class="hero-cover"
+              src="/assets/yoru-ni-kakeru-cover.jpg"
+              alt="YOASOBI《夜に駆ける》收录专辑 THE BOOK 官方封面"
+            />
+            <div class="hero-copy">
+              <p class="eyebrow" id="greeting">RUN INTO THE NIGHT</p>
+              <h1 id="heroTitle" lang="ja">二人だけの空が広がる夜に。</h1>
+              <p id="heroSubtitle" lang="zh-CN">在只属于两人的天空铺展开的夜里。</p>
+              <button class="text-button" id="heroAddButton">
+                添加第一件事
+                <span aria-hidden="true">↗</span>
+              </button>
+              <button class="text-button ai-hero-button" id="heroImportButton">
+                <span aria-hidden="true">✦</span>
+                AI 批量导入
+              </button>
+            </div>
+            <div class="progress-wrap" aria-label="今日完成进度">
+              <svg class="progress-ring" viewBox="0 0 120 120">
+                <circle class="progress-track" cx="60" cy="60" r="50" />
+                <circle class="progress-value" id="progressCircle" cx="60" cy="60" r="50" />
+              </svg>
+              <div class="progress-copy">
+                <strong id="progressPercent">0%</strong>
+                <span>今日进度</span>
+              </div>
+              <span class="hero-scribble" aria-hidden="true">one step</span>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">TONIGHT'S LIST</p>
+              <h3 id="viewTitle">全部任务</h3>
+            </div>
+            <div class="view-tools">
+              <span class="task-total" id="taskTotal">0 项任务</span>
+              <select id="sortSelect" class="sort-select" aria-label="排序方式">
+                <option value="smart">智能排序</option>
+                <option value="due">按截止时间</option>
+                <option value="created">按创建时间</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-row" id="filterRow">
+            <button class="filter-chip is-active" data-priority="all">全部</button>
+            <button class="filter-chip" data-priority="high">
+              <span class="priority-dot high"></span>高优先级
+            </button>
+            <button class="filter-chip" data-priority="medium">
+              <span class="priority-dot medium"></span>普通
+            </button>
+            <button class="filter-chip" data-priority="low">
+              <span class="priority-dot low"></span>低优先级
+            </button>
+          </div>
+
+          <div class="task-list" id="taskList" aria-live="polite"></div>
+
+          <div class="empty-state is-hidden" id="emptyState">
+            <div class="empty-illustration" aria-hidden="true">
+              <span class="empty-sun"></span>
+              <span class="empty-line line-one"></span>
+              <span class="empty-line line-two"></span>
+              <span class="empty-line line-three"></span>
+            </div>
+            <h4 id="emptyTitle">清单还是空的</h4>
+            <p id="emptyText">给今天写下一件值得完成的小事吧。</p>
+            <button class="primary-button" id="emptyAddButton">添加任务</button>
+          </div>
+        </section>
+
+        <footer class="app-footer">
+          <span>RickyYY · 向夜晚奔去。</span>
+          <span id="cloudStatus">数据已同步</span>
+        </footer>
+      </main>
+    </div>
+
+    <dialog class="task-dialog" id="taskDialog">
+      <form method="dialog" class="dialog-card" id="taskForm">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow" id="dialogEyebrow">NEW TASK</p>
+            <h2 id="dialogTitle">添加一件小事</h2>
+          </div>
+          <button class="icon-button dialog-close" type="button" id="closeDialog" aria-label="关闭">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+
+        <input type="hidden" id="taskId" />
+        <label class="field">
+          <span>任务名称</span>
+          <input id="taskTitle" maxlength="160" placeholder="例如：整理本周的会议笔记" required autofocus />
+        </label>
+        <label class="field">
+          <span>补充说明 <em>可选</em></span>
+          <textarea id="taskNotes" maxlength="1000" rows="3" placeholder="记录一些细节，避免遗忘……"></textarea>
+        </label>
+        <div class="field-grid">
+          <label class="field">
+            <span>截止日期</span>
+            <input id="taskDueDate" type="date" />
+          </label>
+          <label class="field">
+            <span>分类</span>
+            <select id="taskCategory">
+              <option value="personal">生活</option>
+              <option value="work">工作</option>
+              <option value="study">学习</option>
+            </select>
+          </label>
+        </div>
+        <fieldset class="priority-field">
+          <legend>优先级</legend>
+          <label class="priority-option">
+            <input type="radio" name="priority" value="low" />
+            <span><i class="priority-dot low"></i>低</span>
+          </label>
+          <label class="priority-option">
+            <input type="radio" name="priority" value="medium" checked />
+            <span><i class="priority-dot medium"></i>普通</span>
+          </label>
+          <label class="priority-option">
+            <input type="radio" name="priority" value="high" />
+            <span><i class="priority-dot high"></i>高</span>
+          </label>
+        </fieldset>
+        <p class="form-error dialog-error" id="taskError" role="alert"></p>
+        <div class="dialog-actions">
+          <button class="secondary-button" type="button" id="cancelDialog">取消</button>
+          <button class="primary-button" type="submit" id="saveTaskButton">保存任务</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="task-dialog import-dialog" id="importDialog">
+      <div class="dialog-card">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">AI TASK IMPORT</p>
+            <h2>把一大段文字变成待办</h2>
+          </div>
+          <button class="icon-button dialog-close" type="button" id="closeImportDialog" aria-label="关闭">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+
+        <section id="importInputStage">
+          <p class="import-intro">粘贴聊天记录、会议纪要、作业要求或任何通知。AI 只提取其中需要执行的事项。</p>
+          <label class="field import-field">
+            <span>原始文本 <em>最多 20,000 字</em></span>
+            <textarea
+              id="importText"
+              rows="11"
+              maxlength="20000"
+              placeholder="例如：明天下午三点前回复导师邮件；周五前提交实验报告；别忘了预约下周体检……"
+            ></textarea>
+          </label>
+          <div class="import-counter"><span id="importCounter">0</span> / 20,000</div>
+          <p class="form-error dialog-error" id="importError" role="alert"></p>
+          <div class="dialog-actions">
+            <button class="secondary-button" type="button" id="cancelImport">取消</button>
+            <button class="primary-button ai-analyze-button" type="button" id="analyzeImport">
+              <span class="ai-spark" aria-hidden="true">✦</span>
+              <span>交给 AI 整理</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="import-preview is-hidden" id="importPreviewStage">
+          <div class="import-result-heading">
+            <div>
+              <p class="eyebrow">REVIEW</p>
+              <h3>识别出 <span id="importResultCount">0</span> 条待办</h3>
+            </div>
+            <span class="import-review-tip">取消勾选不需要的条目</span>
+          </div>
+          <div class="import-preview-list" id="importPreviewList"></div>
+          <p class="form-error dialog-error" id="importSaveError" role="alert"></p>
+          <div class="dialog-actions">
+            <button class="secondary-button" type="button" id="backToImport">返回修改</button>
+            <button class="primary-button" type="button" id="confirmImport">加入清单</button>
+          </div>
+        </section>
+      </div>
+    </dialog>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+    <div class="delete-sheet is-hidden" id="deleteSheet">
+      <div class="delete-sheet-card">
+        <p>确定要删除这条任务吗？</p>
+        <div>
+          <button class="secondary-button" id="cancelDelete">取消</button>
+          <button class="danger-button" id="confirmDelete">删除</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/app.js?v=ai-import-1"></script>
+  </body>
+</html>
